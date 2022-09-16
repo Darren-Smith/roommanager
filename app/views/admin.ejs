@@ -1,0 +1,63 @@
+<%- include('./head')%>
+    <%- include('./header')%>
+
+        <div class="container w-25 mt-3">
+            <h3 >Add a new user</h3>
+
+            <form id="register" name="register" action="/register" method="POST">
+                <div class="form-group">
+                    <label for="username">Name</label>
+                    <input type="text" class="form-control" name="newUserDetails[username]" id="username" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" class="form-control" name="newUserDetails[password]" id="password" required>
+                </div>
+                <div class="invisible form-check">
+                    <label for="isAdmin">isAdmin</label>
+                    <input type="checkbox" class="form-check-input" name="newUserDetails[isAdmin]" id="isAdmin"
+                        value="0">
+                </div>
+                <div class="text-center"><button type="submit" class="btn btn-primary">Add user</button>
+                </div>
+
+
+            </form>
+        </div>
+        <div class="container mt-5 text-center" >
+            <h3>RoomManager users</h3>
+
+            <table class="table">
+                <thead>
+                    <tr>
+
+                        <th>Username</th>
+
+                        <th>User Type</th>
+
+                        <th>Last Updated</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% for(user of allUsers){%>
+                        <tr>
+                            <td><a href="/showUser/<%= user.user_id %>">
+                                    <%= user.username %>
+                                </a></td>
+                            <% if (user.isAdmin) {%>
+                                <td>Admin</td>
+                                <% } else { %>
+                                    <td>User</td>
+                                    <% } %>
+                                        <td>
+                                            <%= user.updatedAt.toString().substring(0,15) %>
+                                        </td>
+                        </tr>
+                        <% } %>
+                </tbody>
+            </table>
+
+        </div>
+
+
+        <%- include('./footer')%>

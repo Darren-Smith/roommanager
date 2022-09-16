@@ -1,0 +1,70 @@
+<%- include('../head')%>
+    <%- include('../header')%>
+
+        <div class="container h-100  shadow">
+            <a href="http://localhost:3000/bookings/addBooking"><i class="bi bi-plus-square"></i> Add Booking</a>
+
+            <h1>List of bookings</h1>
+
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Booking ID</th>
+                        <th>Room</th>
+                        <th>Main Guest</th>
+                        <th>Other Guests</th>
+                        <th>Group</th>
+                        <th>First night of stay</th>
+                        <th>Last night of stay</th>
+                        <th>Notes</th>
+                        <th>Confirmed</th>
+                        <th>Updated</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% for(booking of allBookings){%>
+                        <tr>
+                            <td><a href="/bookings/<%= booking.booking_id %>/showBooking">
+                                    <%= booking.booking_id %>
+                                </a></td>
+                                <td>
+                                    <%= booking.room %>
+                                </td>
+                                <td>
+                                <%= booking.guest1_name %>
+                            </td>
+                            <td>
+                                <%= booking.guest2_name %> 
+                                <%= booking.guest3_name %> 
+                                <%= booking.guest4_name %>
+                            </td>
+                            <td>
+                                <%= booking.group_name %>
+                            </td>
+
+                            <td>
+                                <%= booking.first_night %>
+                            </td>
+                            <td>
+                                <%= booking.last_night %>
+                            </td>
+                            <td>
+                                <%= booking.notes %>
+                            </td>
+                            <td>
+                                <% if (booking.confirmed){ %>
+                                    Yes
+                                    <% } %>
+                                
+                            </td>
+                            <td>
+                                <small>
+                                    <%= booking.updatedAt.toString().substring(4,15) %>
+                                </small>
+                            </td>
+                        </tr>
+                        <% } %>
+                </tbody>
+            </table>
+
+            <%- include('../footer')%>

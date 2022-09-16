@@ -1,0 +1,45 @@
+<%- include('../head')%>
+<%- include('../header')%>
+
+    <div class="container">
+        <div class="d-flex flex-column justify-content-center align-items-center">
+            <h1>Add a booking</h1>
+            <form class="justify-content-center" action="addBooking" method="POST" id="addBooking" name="addBooking">
+                <div class="form-group">
+                    <label for="room">Room</label>
+                    <input type="text" class="form-control" name="newBooking[room]" id="room" required>
+                </div>
+                <div class="form-group">
+                    <label for="guest1name">Guest Name</label>
+                    <input type="text" class="form-control" name="newBooking[guest1_name]" id="guest1name" required>
+                </div>
+                <div class="form-group">
+                    <label for="guest2name">Other Guest</label>
+                    <input type="text" class="form-control" name="newBooking[guest2_name]" id="guest2name">
+                    <label for="guest3name">Other Guest</label>
+                    <input type="text" class="form-control" name="newBooking[guest3_name]" id="guest3name">
+                    <label for="guest4name">Other Guest</label>
+                    <input type="text" class="form-control" name="newBooking[guest4_name]" id="guest4name">                  
+                </div>
+                <div class="form-group">
+                    <label for="groupName">Group</label>
+                    <input type="text" class="form-control" name="newBooking[group_name]" id="groupName" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="firstNight">First night of stay</label>
+                    <input type="date" class="form-control" name="newBooking[first_night]" id="firstNight" required>
+                </div>
+                <div class="form-group">
+                    <label for="groupName">Last night of stay</label>
+                    <input type="date" class="form-control" name="newBooking[last_night]" id="lastNight" required>
+                </div>
+                <div class="form-group">
+                    <label for="groupName">Notes</label>
+                    <input type="textarea" class="form-control" name="newBooking[notes]" id="notes">
+                </div>
+                <div class="text-center"><button type="submit" class="btn btn-primary mt-3">Add Booking</button></div>
+            </form>
+        </div>
+    </div>
+    <%- include('../footer')%>

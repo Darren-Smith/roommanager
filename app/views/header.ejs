@@ -1,0 +1,33 @@
+<body>
+
+    
+        <div class="container-fluid sticky-top" id="banner">
+
+            <div>
+                <div class="d-flex justify-content-between align-items-center">
+                    <span class="d-inline title display-5 ">
+                        <%= title %>
+                    </span>
+                    <% if (user){ %>
+                        <span class="d-inline float-right text-maroon">Logged in as <%= user.username %></span>
+                        <% } %>
+                </div>
+            </div>
+            <nav class="navbar">
+                <% if (user){ %>
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item"><a class="nav-link" href="http://localhost:3000/dashboard">Dashboard</a>
+                        </li>
+                        <li class="nav-item"><a class="nav-link" href="http://localhost:3000/bookings">Bookings</a></li>
+                        <li class="nav-item"><a class="nav-link" href="http://localhost:3000/calendar">Calendar</a></li>
+                        <li class="nav-item"><a class="nav-link" href="http://localhost:3000/reports">Reports</a></li>
+                        <% if (user.isAdmin){ %>
+                            <li class="nav-item"><a class="nav-link" href="http://localhost:3000/admin">Admin</a></li>
+                            <% } %>
+                    </ul>
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item"><a class="nav-link" href="http://localhost:3000/logout">Logout</a></li>
+                    </ul>
+                    <% } %>
+            </nav>
+        </div>  

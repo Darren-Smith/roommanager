@@ -1,0 +1,16 @@
+
+<%- include('../head')%>
+<%- include('../header')%>
+
+    <div class="container h-100">
+        <h1>booking detail</h1>
+        <a href="/bookings/<%= booking.booking_id -1 %>/showBooking">previous</a>
+        <br>
+        <a href="/bookings/<%= booking.booking_id +1 %>/showBooking">next</a>
+
+        <br>
+
+        <%= booking.booking_id %>
+        <%= booking.guest1_name %>
+
+<%- include('../footer')%>
